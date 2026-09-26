@@ -1,0 +1,200 @@
+{
+  "plan_id": "mid-autumn-market-2026",
+  "version": 1,
+  "date": "2026-09-26",
+  "venues": [
+    { "id": "venue-poetry", "name": "诗词亭", "capacity": 30 },
+    { "id": "venue-bake", "name": "月饼工坊", "capacity": 20 },
+    { "id": "venue-lantern", "name": "宫灯长廊", "capacity": 16 },
+    { "id": "venue-rubbing", "name": "传拓小院", "capacity": 12 },
+    { "id": "venue-tech", "name": "科技体验棚", "capacity": 24 },
+    { "id": "venue-plaza", "name": "中央广场", "capacity": 60 }
+  ],
+  "staff": [
+    { "id": "mentor-su", "name": "苏导师", "role": "mentor" },
+    { "id": "mentor-qian", "name": "钱导师", "role": "mentor" },
+    { "id": "mentor-luo", "name": "罗工", "role": "mentor" },
+    { "id": "inheritor-wang", "name": "王师傅", "role": "inheritor" },
+    { "id": "inheritor-zheng", "name": "郑师傅", "role": "inheritor" },
+    { "id": "inheritor-sun", "name": "孙师傅", "role": "inheritor" }
+  ],
+  "activities": [
+    {
+      "id": "act-poetry",
+      "name": "诗词飞花令",
+      "category": "reading",
+      "required_consents": ["image"],
+      "min_age": 6,
+      "record_kind": "reading"
+    },
+    {
+      "id": "act-mooncake",
+      "name": "月饼手作",
+      "category": "craft",
+      "required_consents": ["allergy", "image", "safety"],
+      "min_age": 4,
+      "materials": { "batch-crust": 1, "batch-filling": 1 }
+    },
+    {
+      "id": "act-lantern",
+      "name": "宫灯扎制",
+      "category": "craft",
+      "required_consents": ["image", "safety"],
+      "min_age": 8,
+      "materials": { "batch-lantern": 1 }
+    },
+    {
+      "id": "act-rubbing",
+      "name": "传拓体验",
+      "category": "heritage",
+      "required_consents": ["image"],
+      "min_age": 6,
+      "materials": { "batch-ricepaper": 2 }
+    },
+    {
+      "id": "act-robotdog",
+      "name": "机器狗互动",
+      "category": "tech",
+      "required_consents": ["image", "safety"],
+      "min_age": 5,
+      "device_type": "robot-dog"
+    },
+    {
+      "id": "act-vr",
+      "name": "VR赏月",
+      "category": "tech",
+      "required_consents": ["image", "safety"],
+      "min_age": 7,
+      "device_type": "vr-headset"
+    },
+    {
+      "id": "act-science-kit",
+      "name": "科普资源包领取",
+      "category": "reading",
+      "required_consents": [],
+      "min_age": 0,
+      "materials": { "batch-kit": 1 },
+      "record_kind": "science"
+    }
+  ],
+  "batches": [
+    { "id": "batch-crust", "name": "月饼饼皮原料·批次A", "unit": "份", "initial_quantity": 40 },
+    { "id": "batch-filling", "name": "月饼馅料·批次A", "unit": "份", "initial_quantity": 40 },
+    { "id": "batch-lantern", "name": "宫灯竹骨绢面·批次B", "unit": "套", "initial_quantity": 24 },
+    { "id": "batch-ricepaper", "name": "传拓宣纸·批次C", "unit": "张", "initial_quantity": 60 },
+    { "id": "batch-kit", "name": "科普资源包·批次D", "unit": "份", "initial_quantity": 50 }
+  ],
+  "devices": [
+    { "id": "dev-dog-1", "name": "机器狗·甲", "type": "robot-dog" },
+    { "id": "dev-dog-2", "name": "机器狗·乙", "type": "robot-dog" },
+    { "id": "dev-vr-1", "name": "VR头显·1号", "type": "vr-headset" },
+    { "id": "dev-vr-2", "name": "VR头显·2号", "type": "vr-headset" },
+    { "id": "dev-vr-3", "name": "VR头显·3号", "type": "vr-headset" }
+  ],
+  "device_checks": [
+    { "device_id": "dev-dog-1", "checked_at": "2026-09-26T08:00:00", "inspector": "场地工程组", "result": "pass" },
+    { "device_id": "dev-dog-2", "checked_at": "2026-09-26T08:00:00", "inspector": "场地工程组", "result": "pass" },
+    { "device_id": "dev-vr-1", "checked_at": "2026-09-26T08:05:00", "inspector": "场地工程组", "result": "pass" },
+    { "device_id": "dev-vr-2", "checked_at": "2026-09-26T08:05:00", "inspector": "场地工程组", "result": "pass" },
+    { "device_id": "dev-vr-3", "checked_at": "2026-09-26T08:05:00", "inspector": "场地工程组", "result": "pass", "note": "备用机" }
+  ],
+  "sessions": [
+    {
+      "id": "ses-kit-1",
+      "activity_id": "act-science-kit",
+      "venue_id": "venue-plaza",
+      "staff_id": "mentor-qian",
+      "start": "2026-09-26T09:30:00",
+      "end": "2026-09-26T17:00:00",
+      "capacity": 50
+    },
+    {
+      "id": "ses-poetry-1",
+      "activity_id": "act-poetry",
+      "venue_id": "venue-poetry",
+      "staff_id": "mentor-su",
+      "start": "2026-09-26T10:00:00",
+      "end": "2026-09-26T10:45:00",
+      "capacity": 24
+    },
+    {
+      "id": "ses-mooncake-1",
+      "activity_id": "act-mooncake",
+      "venue_id": "venue-bake",
+      "staff_id": "inheritor-wang",
+      "start": "2026-09-26T10:30:00",
+      "end": "2026-09-26T11:15:00",
+      "capacity": 12
+    },
+    {
+      "id": "ses-lantern-1",
+      "activity_id": "act-lantern",
+      "venue_id": "venue-lantern",
+      "staff_id": "inheritor-zheng",
+      "start": "2026-09-26T11:00:00",
+      "end": "2026-09-26T12:00:00",
+      "capacity": 10
+    },
+    {
+      "id": "ses-rubbing-1",
+      "activity_id": "act-rubbing",
+      "venue_id": "venue-rubbing",
+      "staff_id": "inheritor-sun",
+      "start": "2026-09-26T14:00:00",
+      "end": "2026-09-26T14:40:00",
+      "capacity": 10
+    },
+    {
+      "id": "ses-robotdog-1",
+      "activity_id": "act-robotdog",
+      "venue_id": "venue-tech",
+      "staff_id": "mentor-luo",
+      "start": "2026-09-26T15:00:00",
+      "end": "2026-09-26T15:30:00",
+      "capacity": 16,
+      "device_ids": ["dev-dog-1"]
+    },
+    {
+      "id": "ses-vr-1",
+      "activity_id": "act-vr",
+      "venue_id": "venue-tech",
+      "staff_id": "mentor-luo",
+      "start": "2026-09-26T15:30:00",
+      "end": "2026-09-26T16:00:00",
+      "capacity": 8,
+      "device_ids": ["dev-vr-1", "dev-vr-2"]
+    },
+    {
+      "id": "ses-poetry-2",
+      "activity_id": "act-poetry",
+      "venue_id": "venue-poetry",
+      "staff_id": "mentor-su",
+      "start": "2026-09-26T16:00:00",
+      "end": "2026-09-26T16:45:00",
+      "capacity": 24
+    }
+  ],
+  "stamp_rules": [
+    { "id": "rule-craft", "name": "巧手章", "category": "craft", "required_completions": 2 },
+    { "id": "rule-heritage", "name": "传习章", "category": "heritage", "required_completions": 1 },
+    { "id": "rule-tech", "name": "探索章", "category": "tech", "required_completions": 2 },
+    { "id": "rule-reading", "name": "书香章", "category": "reading", "required_completions": 1 }
+  ],
+  "families": [
+    { "id": "fam-chen", "name": "陈家" },
+    { "id": "fam-liu", "name": "刘家" },
+    { "id": "fam-wang", "name": "王家" }
+  ],
+  "members": [
+    { "id": "mem-chen-die", "family_id": "fam-chen", "name": "陈爸爸", "age": 39, "consents": ["allergy", "image", "safety"] },
+    { "id": "mem-chen-ma", "family_id": "fam-chen", "name": "陈妈妈", "age": 37, "consents": ["allergy", "image", "safety"] },
+    { "id": "mem-chen-zi", "family_id": "fam-chen", "name": "陈小明", "age": 9, "consents": ["image", "safety"] },
+    { "id": "mem-liu-ma", "family_id": "fam-liu", "name": "刘妈妈", "age": 35, "consents": ["allergy", "image", "safety"] },
+    { "id": "mem-liu-nv", "family_id": "fam-liu", "name": "刘朵朵", "age": 7, "consents": ["allergy", "image"] },
+    { "id": "mem-wang-ye", "family_id": "fam-wang", "name": "王爷爷", "age": 66, "consents": ["image"] },
+    { "id": "mem-wang-sun", "family_id": "fam-wang", "name": "王小虎", "age": 12, "consents": ["allergy", "image", "safety"] }
+  ],
+  "groups": [
+    { "id": "grp-friends", "name": "邻里结伴", "family_ids": ["fam-chen", "fam-liu"] }
+  ]
+}

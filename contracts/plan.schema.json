@@ -1,0 +1,190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "公共文化活动排定资料",
+  "type": "object",
+  "required": ["plan_id", "version", "date"],
+  "properties": {
+    "plan_id": { "type": "string", "minLength": 1 },
+    "version": { "type": "integer", "minimum": 1 },
+    "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "venues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "capacity"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "capacity": { "type": "integer", "minimum": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "staff": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "role"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "role": { "enum": ["mentor", "inheritor"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "activities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "category"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "category": { "enum": ["craft", "reading", "heritage", "tech"] },
+          "required_consents": {
+            "type": "array",
+            "items": { "enum": ["allergy", "image", "safety"] },
+            "uniqueItems": true
+          },
+          "min_age": { "type": "integer", "minimum": 0 },
+          "max_age": { "type": ["integer", "null"], "minimum": 0 },
+          "materials": {
+            "type": "object",
+            "additionalProperties": { "type": "integer", "minimum": 1 }
+          },
+          "device_type": { "type": ["string", "null"] },
+          "record_kind": { "enum": ["reading", "science", null] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "batches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "unit", "initial_quantity"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "unit": { "type": "string", "minLength": 1 },
+          "initial_quantity": { "type": "integer", "minimum": 0 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "devices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "type"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "type": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "device_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["device_id", "checked_at", "inspector", "result"],
+        "properties": {
+          "device_id": { "type": "string", "minLength": 1 },
+          "checked_at": { "type": "string" },
+          "inspector": { "type": "string", "minLength": 1 },
+          "result": { "enum": ["pass", "fail"] },
+          "note": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "sessions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "activity_id", "venue_id", "staff_id", "start", "end", "capacity"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "activity_id": { "type": "string", "minLength": 1 },
+          "venue_id": { "type": "string", "minLength": 1 },
+          "staff_id": { "type": "string", "minLength": 1 },
+          "start": { "type": "string" },
+          "end": { "type": "string" },
+          "capacity": { "type": "integer", "minimum": 1 },
+          "device_ids": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "stamp_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "category", "required_completions"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "category": { "enum": ["craft", "reading", "heritage", "tech"] },
+          "required_completions": { "type": "integer", "minimum": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "families": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "members": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "family_id", "name", "age"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "family_id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "age": { "type": "integer", "minimum": 0 },
+          "consents": {
+            "type": "array",
+            "items": { "enum": ["allergy", "image", "safety"] },
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "family_ids"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "family_ids": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "minItems": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
