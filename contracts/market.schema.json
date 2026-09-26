@@ -1,0 +1,223 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "公共文化活动保障目录",
+  "type": "object",
+  "required": ["domain", "version", "sample_id", "event", "venues", "staff", "activities", "sessions", "material_batches", "batch_allocations", "devices", "device_checks", "families"],
+  "properties": {
+    "domain": {"const": "culture-market-operations"},
+    "version": {"type": "integer", "minimum": 1},
+    "sample_id": {"type": "string", "minLength": 1},
+    "event": {
+      "type": "object",
+      "required": ["id", "name", "date"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "name": {"type": "string", "minLength": 1},
+        "date": {"type": "string", "format": "date"},
+        "open": {"type": "string"},
+        "close": {"type": "string"},
+        "city": {"type": "string"},
+        "notice": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "venues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "capacity"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "capacity": {"type": "integer", "minimum": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "staff": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "role"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "name_alt": {"type": ["string", "null"]},
+          "role": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "activities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "booking", "capacity", "min_age", "required_consents", "stamp", "materials", "records"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "booking": {"enum": ["person", "family"]},
+          "capacity": {"type": "integer", "minimum": 1},
+          "min_age": {"type": "integer", "minimum": 0},
+          "required_consents": {
+            "type": "array",
+            "items": {"enum": ["allergy_notice", "image_authorization", "safety_confirmation"]},
+            "uniqueItems": true
+          },
+          "stamp": {
+            "oneOf": [
+              {"type": "null"},
+              {
+                "type": "object",
+                "required": ["code", "rule"],
+                "properties": {
+                  "code": {"type": "string", "minLength": 1},
+                  "rule": {"type": "string", "minLength": 1}
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "materials": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["material", "qty", "unit"],
+              "properties": {
+                "material": {"type": "string"},
+                "qty": {"type": "number", "exclusiveMinimum": 0},
+                "unit": {"type": "string"}
+              },
+              "additionalProperties": false
+            }
+          },
+          "records": {
+            "type": "array",
+            "items": {"enum": ["reading", "science_per_child"]}
+          },
+          "reading_options": {"type": "array", "items": {"type": "string"}},
+          "allergen_note": {"type": "string"},
+          "note": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "sessions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "activity_id", "venue_id", "start", "end"],
+        "properties": {
+          "id": {"type": "string"},
+          "activity_id": {"type": "string"},
+          "venue_id": {"type": "string"},
+          "start": {"type": "string", "description": "HH:MM，活动日本地时间"},
+          "end": {"type": "string"},
+          "mentor_id": {"type": ["string", "null"]},
+          "inheritor_id": {"type": ["string", "null"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "material_batches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "material", "qty", "unit"],
+        "properties": {
+          "id": {"type": "string"},
+          "material": {"type": "string"},
+          "qty": {"type": "number", "minimum": 0},
+          "unit": {"type": "string"},
+          "received": {"type": "string"},
+          "supplier": {"type": "string"},
+          "note": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "batch_allocations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["session_id", "batch_id", "qty"],
+        "properties": {
+          "session_id": {"type": "string"},
+          "batch_id": {"type": "string"},
+          "qty": {"type": "number", "exclusiveMinimum": 0}
+        },
+        "additionalProperties": false
+      }
+    },
+    "devices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "activity_id", "slots", "label"],
+        "properties": {
+          "id": {"type": "string"},
+          "type": {"type": "string"},
+          "activity_id": {"type": "string"},
+          "slots": {"type": "integer", "minimum": 1},
+          "label": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "device_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["device_id", "at", "inspector_id", "result"],
+        "properties": {
+          "device_id": {"type": "string"},
+          "at": {"type": "string"},
+          "inspector_id": {"type": "string"},
+          "result": {"enum": ["pass", "fail"]},
+          "note": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "families": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "passports"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "contact_name": {"type": "string"},
+          "contact_phone": {"type": "string"},
+          "passports": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["member_id", "name", "relation", "birth_year", "consents"],
+              "properties": {
+                "member_id": {"type": "string"},
+                "name": {"type": "string"},
+                "relation": {"type": "string"},
+                "birth_year": {"type": "integer"},
+                "consents": {
+                  "type": "object",
+                  "required": ["allergy_notice", "image_authorization", "safety_confirmation"],
+                  "properties": {
+                    "allergy_notice": {"type": "boolean"},
+                    "image_authorization": {"type": "boolean"},
+                    "safety_confirmation": {"type": "boolean"}
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

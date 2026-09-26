@@ -1,0 +1,289 @@
+{
+  "domain": "culture-market-operations",
+  "version": 2,
+  "sample_id": "sample-013",
+  "event": {
+    "id": "mid-autumn-2026",
+    "name": "2026 中秋文旅市集",
+    "date": "2026-09-26",
+    "open": "13:00",
+    "close": "17:30",
+    "city": "示例市",
+    "notice": "全部为虚构示例数据，不含真实个人信息"
+  },
+  "venues": [
+    {"id": "V-DESK", "name": "总服务台", "capacity": 5},
+    {"id": "V-HALL", "name": "咏月诗词台", "capacity": 30},
+    {"id": "V-MOON", "name": "月饼手作工坊", "capacity": 14},
+    {"id": "V-LAMP", "name": "宫灯雅坊", "capacity": 14},
+    {"id": "V-RUB", "name": "金石传拓室", "capacity": 12},
+    {"id": "V-TECH", "name": "科技互动广场", "capacity": 20},
+    {"id": "V-VR", "name": "月宫VR舱", "capacity": 6},
+    {"id": "V-VR-BACKUP", "name": "数字体验备用区", "capacity": 8}
+  ],
+  "staff": [
+    {"id": "M01", "name": "林韵", "role": "诗词导师"},
+    {"id": "M02", "name": "周晴", "name_alt": null, "role": "宫灯导师"},
+    {"id": "M03", "name": "高翔", "role": "科技体验导师"},
+    {"id": "M04", "name": "郑萌", "role": "VR体验导师"},
+    {"id": "M05", "name": "冯悦", "role": "服务台专员"},
+    {"id": "M06", "name": "何磊", "role": "面点助教"},
+    {"id": "ICH-021", "name": "苏婉清", "role": "区级非物质文化遗产代表性传承人（广式月饼制作）"},
+    {"id": "ICH-014", "name": "陈仲明", "role": "市级非物质文化遗产代表性传承人（传拓技艺）"}
+  ],
+  "activities": [
+    {
+      "id": "poetry",
+      "name": "咏月诗词会",
+      "booking": "person",
+      "capacity": 16,
+      "min_age": 6,
+      "required_consents": ["image_authorization"],
+      "stamp": {"code": "诗", "rule": "当场完整诵读一首指定咏月诗词，由导师核验"},
+      "materials": [],
+      "records": ["reading"],
+      "reading_options": ["水调歌头·明月几时有", "望月怀远", "古朗月行（节选）"]
+    },
+    {
+      "id": "mooncake",
+      "name": "手作月饼",
+      "booking": "person",
+      "capacity": 12,
+      "min_age": 5,
+      "required_consents": ["allergy_notice", "safety_confirmation"],
+      "stamp": {"code": "饼", "rule": "完成一只月饼成形并经传承人或助教核验"},
+      "materials": [
+        {"material": "饼皮", "qty": 1, "unit": "份"},
+        {"material": "馅料", "qty": 1, "unit": "份"},
+        {"material": "包装盒", "qty": 1, "unit": "个"},
+        {"material": "一次性手套", "qty": 1, "unit": "副"}
+      ],
+      "records": [],
+      "allergen_note": "馅料含小麦、蛋、坚果等过敏原"
+    },
+    {
+      "id": "lantern",
+      "name": "中秋宫灯",
+      "booking": "person",
+      "capacity": 12,
+      "min_age": 7,
+      "required_consents": ["safety_confirmation"],
+      "stamp": {"code": "灯", "rule": "独立完成宫灯拼装并成功亮灯"},
+      "materials": [
+        {"material": "宫灯骨架", "qty": 1, "unit": "套"},
+        {"material": "LED灯芯", "qty": 1, "unit": "个"},
+        {"material": "流苏挂穗", "qty": 1, "unit": "条"}
+      ],
+      "records": []
+    },
+    {
+      "id": "rubbing",
+      "name": "金石传拓",
+      "booking": "person",
+      "capacity": 10,
+      "min_age": 6,
+      "required_consents": ["safety_confirmation"],
+      "stamp": {"code": "拓", "rule": "在传承人指导下完成一幅宣纸传拓作品"},
+      "materials": [
+        {"material": "宣纸", "qty": 2, "unit": "张"},
+        {"material": "拓墨", "qty": 5, "unit": "毫升"},
+        {"material": "棉扑", "qty": 1, "unit": "个"}
+      ],
+      "records": []
+    },
+    {
+      "id": "robot",
+      "name": "机器狗互动",
+      "booking": "person",
+      "capacity": 8,
+      "min_age": 6,
+      "required_consents": ["safety_confirmation", "image_authorization"],
+      "stamp": {"code": "趣", "rule": "完成三轮机器狗指令互动并遵守安全线"},
+      "materials": [],
+      "records": []
+    },
+    {
+      "id": "vr",
+      "name": "月宫VR漫游",
+      "booking": "person",
+      "capacity": 6,
+      "min_age": 8,
+      "required_consents": ["safety_confirmation"],
+      "stamp": {"code": "月", "rule": "完成为时一轮的月宫漫游并正常交还头显"},
+      "materials": [],
+      "records": []
+    },
+    {
+      "id": "kit-handout",
+      "name": "科普资源包发放",
+      "booking": "family",
+      "capacity": 200,
+      "min_age": 0,
+      "required_consents": [],
+      "stamp": null,
+      "materials": [
+        {"material": "科普资源包", "qty": 1, "unit": "份"}
+      ],
+      "records": ["science_per_child"],
+      "note": "免费发放，每家庭限领一份；包内科普任务由每位儿童独立完成与记录"
+    }
+  ],
+  "sessions": [
+    {"id": "KIT-1", "activity_id": "kit-handout", "venue_id": "V-DESK", "start": "13:00", "end": "17:20", "mentor_id": "M05"},
+
+    {"id": "POET-S1", "activity_id": "poetry", "venue_id": "V-HALL", "start": "13:00", "end": "13:45", "mentor_id": "M01"},
+    {"id": "POET-S2", "activity_id": "poetry", "venue_id": "V-HALL", "start": "13:50", "end": "14:35", "mentor_id": "M01"},
+    {"id": "POET-S3", "activity_id": "poetry", "venue_id": "V-HALL", "start": "14:45", "end": "15:30", "mentor_id": "M01"},
+    {"id": "POET-S4", "activity_id": "poetry", "venue_id": "V-HALL", "start": "15:40", "end": "16:25", "mentor_id": "M01"},
+    {"id": "POET-S5", "activity_id": "poetry", "venue_id": "V-HALL", "start": "16:30", "end": "17:15", "mentor_id": "M01"},
+
+    {"id": "MOON-S1", "activity_id": "mooncake", "venue_id": "V-MOON", "start": "13:00", "end": "13:50", "mentor_id": "M06", "inheritor_id": "ICH-021"},
+    {"id": "MOON-S2", "activity_id": "mooncake", "venue_id": "V-MOON", "start": "14:00", "end": "14:50", "mentor_id": "M06", "inheritor_id": "ICH-021"},
+    {"id": "MOON-S3", "activity_id": "mooncake", "venue_id": "V-MOON", "start": "15:00", "end": "15:50", "mentor_id": "M06", "inheritor_id": "ICH-021"},
+    {"id": "MOON-S4", "activity_id": "mooncake", "venue_id": "V-MOON", "start": "16:00", "end": "16:50", "mentor_id": "M06", "inheritor_id": "ICH-021"},
+
+    {"id": "LAMP-S1", "activity_id": "lantern", "venue_id": "V-LAMP", "start": "13:00", "end": "13:50", "mentor_id": "M02"},
+    {"id": "LAMP-S2", "activity_id": "lantern", "venue_id": "V-LAMP", "start": "14:00", "end": "14:50", "mentor_id": "M02"},
+    {"id": "LAMP-S3", "activity_id": "lantern", "venue_id": "V-LAMP", "start": "15:00", "end": "15:50", "mentor_id": "M02"},
+    {"id": "LAMP-S4", "activity_id": "lantern", "venue_id": "V-LAMP", "start": "16:00", "end": "16:50", "mentor_id": "M02"},
+
+    {"id": "RUB-S1", "activity_id": "rubbing", "venue_id": "V-RUB", "start": "13:00", "end": "13:50", "inheritor_id": "ICH-014"},
+    {"id": "RUB-S2", "activity_id": "rubbing", "venue_id": "V-RUB", "start": "14:00", "end": "14:50", "inheritor_id": "ICH-014"},
+    {"id": "RUB-S3", "activity_id": "rubbing", "venue_id": "V-RUB", "start": "15:00", "end": "15:50", "inheritor_id": "ICH-014"},
+    {"id": "RUB-S4", "activity_id": "rubbing", "venue_id": "V-RUB", "start": "16:00", "end": "16:50", "inheritor_id": "ICH-014"},
+
+    {"id": "ROBOT-S1", "activity_id": "robot", "venue_id": "V-TECH", "start": "13:00", "end": "13:40", "mentor_id": "M03"},
+    {"id": "ROBOT-S2", "activity_id": "robot", "venue_id": "V-TECH", "start": "13:50", "end": "14:30", "mentor_id": "M03"},
+    {"id": "ROBOT-S3", "activity_id": "robot", "venue_id": "V-TECH", "start": "14:40", "end": "15:20", "mentor_id": "M03"},
+    {"id": "ROBOT-S4", "activity_id": "robot", "venue_id": "V-TECH", "start": "15:30", "end": "16:10", "mentor_id": "M03"},
+    {"id": "ROBOT-S5", "activity_id": "robot", "venue_id": "V-TECH", "start": "16:20", "end": "17:00", "mentor_id": "M03"},
+
+    {"id": "VR-S1", "activity_id": "vr", "venue_id": "V-VR", "start": "13:00", "end": "13:40", "mentor_id": "M04"},
+    {"id": "VR-S2", "activity_id": "vr", "venue_id": "V-VR", "start": "13:50", "end": "14:30", "mentor_id": "M04"},
+    {"id": "VR-S3", "activity_id": "vr", "venue_id": "V-VR", "start": "14:40", "end": "15:20", "mentor_id": "M04"},
+    {"id": "VR-S4", "activity_id": "vr", "venue_id": "V-VR", "start": "15:30", "end": "16:10", "mentor_id": "M04"},
+    {"id": "VR-S5", "activity_id": "vr", "venue_id": "V-VR", "start": "16:20", "end": "17:00", "mentor_id": "M04"}
+  ],
+  "material_batches": [
+    {"id": "B-DOUGH-01", "material": "饼皮", "qty": 30, "unit": "份", "received": "2026-09-26T09:20", "supplier": "示例食品工坊", "note": "冷藏运输批次A"},
+    {"id": "B-DOUGH-02", "material": "饼皮", "qty": 18, "unit": "份", "received": "2026-09-26T10:05", "supplier": "示例食品工坊", "note": "冷藏运输批次B"},
+    {"id": "B-FILL-01", "material": "馅料", "qty": 24, "unit": "份", "received": "2026-09-26T09:20", "supplier": "示例食品工坊", "note": "莲蓉，含蛋、小麦"},
+    {"id": "B-FILL-02", "material": "馅料", "qty": 24, "unit": "份", "received": "2026-09-26T09:20", "supplier": "示例食品工坊", "note": "五仁，含坚果"},
+    {"id": "B-BOX-01", "material": "包装盒", "qty": 30, "unit": "个", "received": "2026-09-25T16:00", "supplier": "示例包装社"},
+    {"id": "B-BOX-02", "material": "包装盒", "qty": 18, "unit": "个", "received": "2026-09-26T09:40", "supplier": "示例包装社"},
+    {"id": "B-GLOVE-01", "material": "一次性手套", "qty": 60, "unit": "副", "received": "2026-09-25T16:00", "supplier": "示例劳保用品店"},
+    {"id": "B-FRAME-01", "material": "宫灯骨架", "qty": 48, "unit": "套", "received": "2026-09-25T15:30", "supplier": "示例竹艺合作社"},
+    {"id": "B-LED-01", "material": "LED灯芯", "qty": 48, "unit": "个", "received": "2026-09-25T15:30", "supplier": "示例电子商行", "note": "纽扣电池随附"},
+    {"id": "B-TASS-01", "material": "流苏挂穗", "qty": 50, "unit": "条", "received": "2026-09-25T15:30", "supplier": "示例竹艺合作社"},
+    {"id": "B-PAPER-01", "material": "宣纸", "qty": 100, "unit": "张", "received": "2026-09-24T11:00", "supplier": "示例宣纸厂"},
+    {"id": "B-INK-01", "material": "拓墨", "qty": 250, "unit": "毫升", "received": "2026-09-24T11:00", "supplier": "示例墨庄", "note": "无毒水性拓墨"},
+    {"id": "B-PAD-01", "material": "棉扑", "qty": 48, "unit": "个", "received": "2026-09-24T11:00", "supplier": "示例墨庄"},
+    {"id": "B-KIT-01", "material": "科普资源包", "qty": 120, "unit": "份", "received": "2026-09-25T17:00", "supplier": "示例市科技馆", "note": "含月相科普卡、观测记录页，免费发放"}
+  ],
+  "batch_allocations": [
+    {"session_id": "MOON-S1", "batch_id": "B-DOUGH-01", "qty": 12},
+    {"session_id": "MOON-S2", "batch_id": "B-DOUGH-01", "qty": 12},
+    {"session_id": "MOON-S3", "batch_id": "B-DOUGH-01", "qty": 6},
+    {"session_id": "MOON-S3", "batch_id": "B-DOUGH-02", "qty": 6},
+    {"session_id": "MOON-S4", "batch_id": "B-DOUGH-02", "qty": 12},
+    {"session_id": "MOON-S1", "batch_id": "B-FILL-01", "qty": 12},
+    {"session_id": "MOON-S2", "batch_id": "B-FILL-01", "qty": 12},
+    {"session_id": "MOON-S3", "batch_id": "B-FILL-02", "qty": 12},
+    {"session_id": "MOON-S4", "batch_id": "B-FILL-02", "qty": 12},
+    {"session_id": "MOON-S1", "batch_id": "B-BOX-01", "qty": 12},
+    {"session_id": "MOON-S2", "batch_id": "B-BOX-01", "qty": 12},
+    {"session_id": "MOON-S3", "batch_id": "B-BOX-01", "qty": 6},
+    {"session_id": "MOON-S3", "batch_id": "B-BOX-02", "qty": 6},
+    {"session_id": "MOON-S4", "batch_id": "B-BOX-02", "qty": 12},
+    {"session_id": "MOON-S1", "batch_id": "B-GLOVE-01", "qty": 12},
+    {"session_id": "MOON-S2", "batch_id": "B-GLOVE-01", "qty": 12},
+    {"session_id": "MOON-S3", "batch_id": "B-GLOVE-01", "qty": 12},
+    {"session_id": "MOON-S4", "batch_id": "B-GLOVE-01", "qty": 12},
+
+    {"session_id": "LAMP-S1", "batch_id": "B-FRAME-01", "qty": 12},
+    {"session_id": "LAMP-S2", "batch_id": "B-FRAME-01", "qty": 12},
+    {"session_id": "LAMP-S3", "batch_id": "B-FRAME-01", "qty": 12},
+    {"session_id": "LAMP-S4", "batch_id": "B-FRAME-01", "qty": 12},
+    {"session_id": "LAMP-S1", "batch_id": "B-LED-01", "qty": 12},
+    {"session_id": "LAMP-S2", "batch_id": "B-LED-01", "qty": 12},
+    {"session_id": "LAMP-S3", "batch_id": "B-LED-01", "qty": 12},
+    {"session_id": "LAMP-S4", "batch_id": "B-LED-01", "qty": 12},
+    {"session_id": "LAMP-S1", "batch_id": "B-TASS-01", "qty": 12},
+    {"session_id": "LAMP-S2", "batch_id": "B-TASS-01", "qty": 12},
+    {"session_id": "LAMP-S3", "batch_id": "B-TASS-01", "qty": 12},
+    {"session_id": "LAMP-S4", "batch_id": "B-TASS-01", "qty": 12},
+
+    {"session_id": "RUB-S1", "batch_id": "B-PAPER-01", "qty": 20},
+    {"session_id": "RUB-S2", "batch_id": "B-PAPER-01", "qty": 20},
+    {"session_id": "RUB-S3", "batch_id": "B-PAPER-01", "qty": 20},
+    {"session_id": "RUB-S4", "batch_id": "B-PAPER-01", "qty": 20},
+    {"session_id": "RUB-S1", "batch_id": "B-INK-01", "qty": 50},
+    {"session_id": "RUB-S2", "batch_id": "B-INK-01", "qty": 50},
+    {"session_id": "RUB-S3", "batch_id": "B-INK-01", "qty": 50},
+    {"session_id": "RUB-S4", "batch_id": "B-INK-01", "qty": 50},
+    {"session_id": "RUB-S1", "batch_id": "B-PAD-01", "qty": 10},
+    {"session_id": "RUB-S2", "batch_id": "B-PAD-01", "qty": 10},
+    {"session_id": "RUB-S3", "batch_id": "B-PAD-01", "qty": 10},
+    {"session_id": "RUB-S4", "batch_id": "B-PAD-01", "qty": 10},
+
+    {"session_id": "KIT-1", "batch_id": "B-KIT-01", "qty": 120}
+  ],
+  "devices": [
+    {"id": "VR-01", "type": "vr-headset", "activity_id": "vr", "slots": 1, "label": "VR头显一号"},
+    {"id": "VR-02", "type": "vr-headset", "activity_id": "vr", "slots": 1, "label": "VR头显二号"},
+    {"id": "VR-03", "type": "vr-headset", "activity_id": "vr", "slots": 1, "label": "VR头显三号"},
+    {"id": "VR-04", "type": "vr-headset", "activity_id": "vr", "slots": 1, "label": "VR头显四号"},
+    {"id": "VR-05", "type": "vr-headset", "activity_id": "vr", "slots": 1, "label": "VR头显五号"},
+    {"id": "VR-06", "type": "vr-headset", "activity_id": "vr", "slots": 1, "label": "VR头显六号"},
+    {"id": "RD-01", "type": "robot-dog", "activity_id": "robot", "slots": 2, "label": "机器狗甲乙号组（每轮2人）"},
+    {"id": "RD-02", "type": "robot-dog", "activity_id": "robot", "slots": 2, "label": "机器狗乙组（每轮2人）"},
+    {"id": "RD-03", "type": "robot-dog", "activity_id": "robot", "slots": 2, "label": "机器狗丙组（每轮2人）"},
+    {"id": "RD-04", "type": "robot-dog", "activity_id": "robot", "slots": 2, "label": "机器狗丁组（每轮2人）"}
+  ],
+  "device_checks": [
+    {"device_id": "VR-01", "at": "2026-09-26T12:20", "inspector_id": "M04", "result": "pass", "note": "定位与画面正常"},
+    {"device_id": "VR-02", "at": "2026-09-26T12:20", "inspector_id": "M04", "result": "pass", "note": "正常"},
+    {"device_id": "VR-03", "at": "2026-09-26T12:20", "inspector_id": "M04", "result": "pass", "note": "正常"},
+    {"device_id": "VR-04", "at": "2026-09-26T12:20", "inspector_id": "M04", "result": "fail", "note": "右侧屏幕黑屏，开场前贴停用条"},
+    {"device_id": "VR-05", "at": "2026-09-26T12:20", "inspector_id": "M04", "result": "pass", "note": "正常"},
+    {"device_id": "VR-06", "at": "2026-09-26T12:20", "inspector_id": "M04", "result": "pass", "note": "正常"},
+    {"device_id": "RD-01", "at": "2026-09-26T12:30", "inspector_id": "M03", "result": "pass", "note": "步态与指令正常"},
+    {"device_id": "RD-02", "at": "2026-09-26T12:30", "inspector_id": "M03", "result": "pass", "note": "正常"},
+    {"device_id": "RD-03", "at": "2026-09-26T12:30", "inspector_id": "M03", "result": "pass", "note": "正常"},
+    {"device_id": "RD-04", "at": "2026-09-26T12:30", "inspector_id": "M03", "result": "pass", "note": "正常"}
+  ],
+  "families": [
+    {
+      "id": "F01",
+      "name": "李家",
+      "contact_name": "李建国",
+      "contact_phone": "13800000001",
+      "passports": [
+        {"member_id": "F01-1", "name": "李建国", "relation": "父亲", "birth_year": 1988, "consents": {"allergy_notice": true, "image_authorization": true, "safety_confirmation": true}},
+        {"member_id": "F01-2", "name": "李一诺", "relation": "女儿", "birth_year": 2017, "consents": {"allergy_notice": true, "image_authorization": true, "safety_confirmation": true}},
+        {"member_id": "F01-3", "name": "李一笑", "relation": "儿子", "birth_year": 2021, "consents": {"allergy_notice": false, "image_authorization": true, "safety_confirmation": true}}
+      ]
+    },
+    {
+      "id": "F02",
+      "name": "王家",
+      "contact_name": "王海燕",
+      "contact_phone": "13800000002",
+      "passports": [
+        {"member_id": "F02-1", "name": "王海燕", "relation": "母亲", "birth_year": 1991, "consents": {"allergy_notice": true, "image_authorization": true, "safety_confirmation": true}},
+        {"member_id": "F02-2", "name": "王梓涵", "relation": "儿子", "birth_year": 2015, "consents": {"allergy_notice": true, "image_authorization": true, "safety_confirmation": true}},
+        {"member_id": "F02-3", "name": "王梓轩", "relation": "儿子", "birth_year": 2019, "consents": {"allergy_notice": true, "image_authorization": true, "safety_confirmation": false}}
+      ]
+    },
+    {
+      "id": "F03",
+      "name": "张家",
+      "contact_name": "张磊",
+      "contact_phone": "13800000003",
+      "passports": [
+        {"member_id": "F03-1", "name": "张磊", "relation": "父亲", "birth_year": 1986, "consents": {"allergy_notice": true, "image_authorization": true, "safety_confirmation": true}},
+        {"member_id": "F03-2", "name": "张小满", "relation": "女儿", "birth_year": 2013, "consents": {"allergy_notice": true, "image_authorization": false, "safety_confirmation": true}}
+      ]
+    }
+  ]
+}
